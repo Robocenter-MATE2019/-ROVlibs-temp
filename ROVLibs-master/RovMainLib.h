@@ -7,21 +7,21 @@
 //#include "UDPConnection.h"
 #include "RovData.h"
 
-class input
+class input //Вынести в отдельный файл переназвать в соответствии с гайдлайном
 {
 public:
 	input() {}
 	virtual void read(RovData& rov_data) = 0;
 };
 
-class output
+class output //Вынести в отдельный файл переназвать в соответствии с гайдлайном
 {
 public:
 	output() {}
 	virtual void write(RovData& rov_data) = 0;
 };
 
-class input_output : public input, output
+class input_output : public input, output //Вынести в отдельный файл переназвать в соответствии с гайдлайном
 {
 public:
 	input_output() {}
@@ -29,7 +29,7 @@ public:
 
 /////////////////////////////////////////////////
 
-class Cams : public output
+class Cams : public output //Вынести в отдельный файл переназвать в соответствии с гайдлайном
 {
 public:
 	Cams();
@@ -39,7 +39,7 @@ private:
 	RotaryCamera m_rotary_cam[2];
 };
 
-////////////////////////////////////////////
+//////////////////////////////////////////// все что ниже удалить
 
 //class Thrusters : public output
 //{
