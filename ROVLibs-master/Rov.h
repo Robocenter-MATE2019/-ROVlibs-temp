@@ -5,7 +5,7 @@
 #include "UDPConnection.h"
 #include "SubSystem.h"
 
-class outputSubSystem:public SubSystem
+class outputSubSystem:public SubSystem // //Вынести в отдельный файл переназвать в соответствии с гайдлайном
 {
 public:
 	outputSubSystem()
@@ -26,7 +26,7 @@ public:
 	output* devices[SIZE_OUTPUT_DEVICES];
 };
 
-class inputSubSystem:public SubSystem
+class inputSubSystem:public SubSystem //Вынести в отдельный файл переназвать в соответствии с гайдлайном
 {
 public:
 	inputSubSystem()
@@ -45,7 +45,7 @@ public:
 	input* devices[SIZE_INPUT_DEVICES];
 };
 
-class IOSubSystem: public SubSystem
+class IOSubSystem: public SubSystem//Вынести в отдельный файл 
 {
 public:
 	IOSubSystem()
@@ -71,7 +71,7 @@ public:
 	void readwriteIO();
 
 	RovData m_rov_data;
-	outputSubSystem m_output;
-	inputSubSystem m_input;
-	IOSubSystem m_io;
+	outputSubSystem m_output; //Положить в массив, настройки массива вынести в конфиг
+	inputSubSystem m_input;   // компановку массива сделать с условной компиляцией
+	IOSubSystem m_io;         //Так же как и в подсистемах
 };
