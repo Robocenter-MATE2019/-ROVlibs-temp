@@ -1,5 +1,6 @@
 #pragma once
 #include "RovData.h"
+//добавить чистовиртуальный метод void init()
 class SubSystem
 {
 public:
