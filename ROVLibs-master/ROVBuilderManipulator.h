@@ -8,7 +8,8 @@ class ROVBuilderManipulator : public Output
 {
 public:
 	ROVBuilderManipulator();
-	/*ROVBuilderManipulator(int8_t pin_release_left, int8_t pin_release_right,
+	//Удалить закомментированный код
+	/*ROVBuilderManipulator(int8_t pin_release_left, int8_t pin_release_right, 
 		int8_t pin_rotate_left, int8_t pin_rotate_right) :
 		m_release_level_motor(pin_release_left, pin_release_right),
 		m_rotate_level_motor(pin_rotate_left, pin_rotate_right)
