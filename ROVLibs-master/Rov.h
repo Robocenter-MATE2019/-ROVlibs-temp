@@ -69,10 +69,12 @@ public:
 	Rov();
 	void init();
 	void run();
+	//удалить методы ниже
 	void write_output();
 	void read_input();
 	void read_writeIO();
 	RovData m_rov_data;
+	//вместо подсистем сделать SubSystem *m_subsystems[SUBSYSTEM_SIZE]
 	OutputSubSystem m_output;
 	InputSubSystem m_input;
 	IOSubSystem m_io;
