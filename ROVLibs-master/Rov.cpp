@@ -28,19 +28,7 @@ void Rov::read_writeIO()
 {
 }
 
-void OutputSubSystem::apply(RovData& rov_data)
-{
-	for (auto device : devices)
-	{
-		device->write(rov_data);
-	}
-}
 
-void InputSubSystem::apply(RovData& rov_data)
-{
 
-}
 
-void IOSubSystem::apply(RovData& rov_data)
-{
-}
+
