@@ -4,8 +4,7 @@
 class SubSystem
 {
 public:
-	SubSystem();
-	~SubSystem();
+	virtual void init();
 	virtual void apply(RovData& rov_data)=0;
 };
 

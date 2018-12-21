@@ -2,11 +2,8 @@
 
 
 
-SubSystem::SubSystem()
-{
-}
 
 
-SubSystem::~SubSystem()
+void SubSystem::init()
 {
 }
