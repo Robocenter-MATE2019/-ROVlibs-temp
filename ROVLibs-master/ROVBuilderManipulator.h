@@ -4,7 +4,7 @@
 #include "RovData.h"
 #include "RovMainLib.h"
 
-class ROVBuilderManipulator : public output
+class ROVBuilderManipulator : public Output
 {
 public:
 	ROVBuilderManipulator();

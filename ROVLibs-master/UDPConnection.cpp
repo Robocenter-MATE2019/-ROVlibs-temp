@@ -20,7 +20,7 @@ bool UDPConnection::receivePacket(RovData& rov_data)
 {
 	if (m_udp.parsePacket())
 	{
-		input_packet packet;
+		InputPacket packet;
 		char packetBuffer[17];
 		m_udp.read(packetBuffer, 17);
 		memcpy(&packet, packetBuffer, sizeof(packetBuffer));
@@ -32,7 +32,7 @@ bool UDPConnection::receivePacket(RovData& rov_data)
 	else return false;
 }
 
-void UDPConnection::sendPacket(const output_packet& packet)
+void UDPConnection::sendPacket(const OutputPacket& packet)
 {
 	if (m_timer.elapsed() > 250)
 	{
@@ -43,7 +43,7 @@ void UDPConnection::sendPacket(const output_packet& packet)
 	}
 }
 
-bool UDPConnection::parsePayload(input_packet& packet, RovData& rov_data)
+bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 {
 	bool actionState[12];
 	for (int i = 0; i <= 7; i++) 
@@ -83,7 +83,7 @@ bool UDPConnection::parsePayload(input_packet& packet, RovData& rov_data)
 
 void UDPConnection::write(RovData& rov_data)
 {
-	output_packet packet;
+	OutputPacket packet;
 	packet.yaw = rov_data.m_yaw;
 	packet.depth = rov_data.m_depth;
 	packet.roll = rov_data.m_roll;

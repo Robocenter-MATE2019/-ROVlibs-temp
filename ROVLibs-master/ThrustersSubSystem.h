@@ -5,7 +5,7 @@
 #include "RovMainLib.h"
 #include "RovData.h"
 
-class ThrustersSubSystem : public output
+class ThrustersSubSystem : public Output
 {
 public:
 	ThrustersSubSystem();

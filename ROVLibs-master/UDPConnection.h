@@ -6,8 +6,9 @@
 #include "Config.h"
 #include "RovMainLib.h"
 #include "RovData.h"
+#include "InputOutput.h"
 
-struct input_packet
+struct InputPacket
 {
 	signed char button_data1;
 	signed char button_data2;
@@ -25,7 +26,7 @@ struct input_packet
 	bool m_actionState[12];
 };
 
-struct output_packet
+struct OutputPacket
 {
 	float yaw = 0;
 	float temp = 0;
@@ -33,7 +34,7 @@ struct output_packet
 	float depth = 0;
 };
 
-class UDPConnection : public input_output
+class UDPConnection : public InputOutput
 {
 public:
 	UDPConnection();
@@ -41,8 +42,8 @@ public:
 	void write(RovData& rov_data);
 	void read(RovData& rov_data);
 	bool receivePacket(RovData& rov_data);
-	void sendPacket(const output_packet& packet);
-	bool parsePayload(input_packet& packet, RovData& rov_data);
+	void sendPacket(const OutputPacket& packet);
+	bool parsePayload(InputPacket& packet, RovData& rov_data);
 private:
 	EthernetUDP m_udp;
 	IPAddress m_self_ip;

@@ -4,11 +4,15 @@
 #include "ROVBuilderManipulator.h"
 #include "UDPConnection.h"
 #include "SubSystem.h"
+#include "RovData.h"
+#include "Output.h"
+#include "Input.h"
+#include "InputOutput.h"
 
-class outputSubSystem:public SubSystem // //Вынести в отдельный файл переназвать в соответствии с гайдлайном
+class OutputSubSystem:public SubSystem
 {
 public:
-	outputSubSystem()
+	OutputSubSystem()
 	{
 		int i = 0;
 #ifdef MANIPULATOR_ENABLE
@@ -18,18 +22,18 @@ public:
 		devices[i++] = new ThrustersSubSystem();
 #endif
 #ifdef ROTARYCAMERA_ENABLE
-		devices[i++] = new Cams();
+		devices[i++] = new Cameras();
 #endif
 
 	}
-	void Apply();
-	output* devices[SIZE_OUTPUT_DEVICES];
+	void apply(RovData& rov_data);
+	Output* devices[SIZE_OUTPUT_DEVICES];
 };
 
-class inputSubSystem:public SubSystem //Вынести в отдельный файл переназвать в соответствии с гайдлайном
+class InputSubSystem:public SubSystem
 {
 public:
-	inputSubSystem()
+	InputSubSystem()
 	{
 		
 		int i = 0;
@@ -41,11 +45,11 @@ public:
 #endif
 
 	}
-	void Apply();
-	input* devices[SIZE_INPUT_DEVICES];
+	void apply(RovData& rov_data) override;
+	Input* devices[SIZE_INPUT_DEVICES];
 };
 
-class IOSubSystem: public SubSystem//Вынести в отдельный файл 
+class IOSubSystem: public SubSystem
 {
 public:
 	IOSubSystem()
@@ -55,8 +59,8 @@ public:
 		devices[i++] = new UDPConnection();
 #endif
 	}
-	void Apply();
-	input_output* devices[SIZE_IO_DEVICES];
+	void apply(RovData& rov_data);
+	InputOutput* devices[SIZE_IO_DEVICES];
 };
 
 
@@ -65,13 +69,11 @@ public:
 	Rov();
 	void init();
 	void run();
-
-	void writeOutput();
-	void readInput();
-	void readwriteIO();
-
+	void write_output();
+	void read_input();
+	void read_writeIO();
 	RovData m_rov_data;
-	outputSubSystem m_output; //Положить в массив, настройки массива вынести в конфиг
-	inputSubSystem m_input;   // компановку массива сделать с условной компиляцией
-	IOSubSystem m_io;         //Так же как и в подсистемах
+	OutputSubSystem m_output;
+	InputSubSystem m_input;
+	IOSubSystem m_io;
 };

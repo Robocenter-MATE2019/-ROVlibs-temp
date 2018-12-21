@@ -1,9 +1,10 @@
 #pragma once
+#include "RovData.h"
 class SubSystem
 {
 public:
-	SubSystem(RovData& rov_data);
+	SubSystem();
 	~SubSystem();
-	virtual void apply()=0;
+	virtual void apply(RovData& rov_data)=0;
 };
 
