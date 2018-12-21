@@ -1,5 +1,6 @@
 #pragma once
 #include "RovData.h"
+//добавить виртуальный метод init()
 class Output
 {
 public:
