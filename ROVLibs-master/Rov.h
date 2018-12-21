@@ -8,7 +8,7 @@
 #include "Output.h"
 #include "Input.h"
 #include "InputOutput.h"
-
+//вынести отсюда все классы сабсистем в отдельные файлы
 class OutputSubSystem:public SubSystem
 {
 public:
