@@ -6,7 +6,7 @@
 #include "Output.h"
 
 
-
+//мне кажется что чтото тут не так
 class Cameras : public Output
 {
 public:
