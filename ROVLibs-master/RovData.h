@@ -20,4 +20,5 @@ struct RovData
 	int8_t m_pitch;
 	int8_t m_depth;
 	int8_t	m_temperature;
+	bool m_metal_detected:
 };

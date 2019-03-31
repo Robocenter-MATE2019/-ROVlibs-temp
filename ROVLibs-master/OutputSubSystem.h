@@ -2,6 +2,7 @@
 #include "SubSystem.h"
 #include "Cameras.h"
 #include "ThrustersSubSystem.h"
+#include "MetalChecker.h"
 
 class OutputSubSystem :public SubSystem
 {
@@ -17,6 +18,9 @@ public:
 #endif
 #ifdef ROTARYCAMERA_ENABLE
 		devices[i++] = new Cameras();
+#endif
+#ifdef METALCHECKER_ENABLE
+		devices[i++] = new MetalChecker();
 #endif
 
 	}

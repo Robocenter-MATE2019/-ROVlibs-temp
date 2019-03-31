@@ -6,12 +6,13 @@
 #define THRUSTERSSUBSYSTEM_ENABLE
 #define ROTARYCAMERA_ENABLE
 
+
 #define IMU_ENABLE
 #define DnT_ENABLE
 
 #define UDP_ENABLE
 
-
+#define METALCHECKER_ENABLE
 
 constexpr int SIZE_OUTPUT_DEVICES        = 3;
 constexpr int SIZE_INPUT_DEVICES         = 2;
@@ -64,4 +65,8 @@ constexpr int ROTARY_CAMERA_2            = 10;
 constexpr int SELF_PORT = 5000;
 constexpr int REMOTE_PORT = 5000;
 
+/////////////////////////////////////////////////
+//MetalChecker///////////////////////////////////
+
+#define METALCHECKER_PIN A0
 /////////////////////////////////////////////////
